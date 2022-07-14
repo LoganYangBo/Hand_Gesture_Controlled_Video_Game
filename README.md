@@ -17,16 +17,16 @@
 # Hand Gesture Recognition Report
 
 ## Introduction
-	We will recognize gestures from video sequences and point out the number of fingers they show. To identify these gestures from a live video sequence, we first need to individually get the hand region by removing original background of the video sequence. After dividing the hand area, we count the number of fingers shown in the video sequence. 
+We will recognize gestures from video sequences and point out the number of fingers they show. To identify these gestures from a live video sequence, we first need to individually get the hand region by removing original background of the video sequence. After dividing the hand area, we count the number of fingers shown in the video sequence. 
 
 ## Subdivide the hand area
-	The first part for hand gesture recognition is to identify the whole hand area by eliminating original background of the video sequence. 
+The first part for hand gesture recognition is to identify the whole hand area by eliminating original background of the video sequence. 
 
 ### -Background Obtaining
-	We control our system to look over 30 frames of a specific scene. And during this time, we calculate the running average of the current and previous frames. As a result, we get the background of the video sequence. And be careful that this process needs 5-6 seconds and do not move the camera during the whole period. 
+We control our system to look over 30 frames of a specific scene. And during this time, we calculate the running average of the current and previous frames. As a result, we get the background of the video sequence. And be careful that this process needs 5-6 seconds and do not move the camera during the whole period. 
 
 ### -Background Subtraction
-	After we figure out the background, we bring our hand in to let the system know that our hand is the new entry in the background, which means it becomes the foreground object. After calculating the background model by using the running average, we use the current frame to save the foreground objects (which is our hand) and the background. We calculate the absolute difference between the background model and the current frame (with our hand) to get the difference image that accommodates the newly added foreground object (which is our hand). 
+After we figure out the background, we bring our hand in to let the system know that our hand is the new entry in the background, which means it becomes the foreground object. After calculating the background model by using the running average, we use the current frame to save the foreground objects (which is our hand) and the background. We calculate the absolute difference between the background model and the current frame (with our hand) to get the difference image that accommodates the newly added foreground object (which is our hand). 
 
 ### -Thresholds
 To get the hand area from this differential image, we need to threshold this differential image so that only our hand area is visible and the background is painted black. Below is a image of all the steps above. 
@@ -36,6 +36,7 @@ Fig.1. Flow diagram to get binary value image.
 ### -Contour Extraction
 After thresholding the difference image, we find the contours in the generated image. The largest outline is thought to be our hands. So, you must make sure that your hand occupies the majority of the region in the frame. The result image is below. The following is the algorithm implementation process:NBD: starting from the boundary point (i, j), a boundary can be obtained by using the boundary tracking algorithm, and each newly found boundary B can be assigned a new unique number. NBD represents the number of the current tracked boundary.
 <img width="202" alt="image" src="https://user-images.githubusercontent.com/36163586/178886943-e2eeb3fa-018f-4f42-b4fa-ade6a645668e.png">
+
 Fig.2. The condition of the border following starting point (i, j) for an outer border (a) and a hole border (b). 
 
 
