@@ -35,6 +35,7 @@ Fig.1. Flow diagram to get binary value image.
 
 ### -Contour Extraction
 After thresholding the difference image, we find the contours in the generated image. The largest outline is thought to be our hands. So, you must make sure that your hand occupies the majority of the region in the frame. The result image is below. The following is the algorithm implementation process:NBD: starting from the boundary point (i, j), a boundary can be obtained by using the boundary tracking algorithm, and each newly found boundary B can be assigned a new unique number. NBD represents the number of the current tracked boundary.
+
 <img width="202" alt="image" src="https://user-images.githubusercontent.com/36163586/178886943-e2eeb3fa-018f-4f42-b4fa-ade6a645668e.png">
 
 Fig.2. The condition of the border following starting point (i, j) for an outer border (a) and a hole border (b). 
