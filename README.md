@@ -1,10 +1,3 @@
-## Environment
-- OS: MacOS El Capitan
-- Platform: Python 3
-- Librarys: 
-	- OpenCV 3
-	- appscript
-
 ## Demo Videos
 - Youtube: [Click here](https://youtu.be/gfTRi-CNw_o)
 
